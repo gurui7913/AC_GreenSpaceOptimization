@@ -2,13 +2,13 @@
 
 Rui Gu · UCL Bartlett · Architectural Computation · BARC0034 Morphogenetic Programming
 
-[English](README.md) · [项目展板](MorphoGenetic.pdf) · [审核记录](docs/AUDIT.md)
+[English](README.md) · [项目展板](docs/boards/MorphoGenetic.pdf) · [审核记录](docs/AUDIT.md)
 
 本仓库整理了课程中的 Rhino / Grasshopper 定义、C# 源码导出、最终提交资料，以及独立的 Python NSGA-II 示例。项目以广东的一处居住区为背景，探索绿地可视性与面积目标之间的权衡。
 
 [![历史展板中的优化前后布局与候选方案对比](docs/images/results-board.jpg)](docs/images/results-board.jpg)
 
-*原始展板展示了场地优化前后布局及候选方案对比。这些是历史展示结果，当前 Python 示例采用独立的合成网格。[查看完整 PDF](MorphoGenetic.pdf)。*
+*原始展板展示了场地优化前后布局及候选方案对比。这些是历史展示结果，当前 Python 示例采用独立的合成网格。[查看完整 PDF](docs/boards/MorphoGenetic.pdf)。*
 
 ## 项目可视化
 
@@ -31,8 +31,8 @@ Rui Gu · UCL Bartlett · Architectural Computation · BARC0034 Morphogenetic Pr
 
 ## 从哪里开始
 
-- 看设计思路：[完整展板](MorphoGenetic.pdf)、[提交版展板](docs/boards/)、[演示文稿](docs/presentations/)。
-- 运行优化示例：根目录 Python 脚本，使用合成的 5 × 6 网格，无需 Rhino 或 GPU。
+- 看设计思路：[完整展板](docs/boards/MorphoGenetic.pdf)、[提交版展板](docs/boards/)、[演示文稿](docs/presentations/)。
+- 运行优化示例：`src/python/green_space_optimization.py`，使用合成的 5 × 6 网格，无需 Rhino 或 GPU。
 - 查看最终空间模型：[grasshopper/final-submission/](grasshopper/final-submission/)。同一目录中的 GH 文件应配合该目录的 Rhino 模型使用。
 - 阅读算法：[src/grasshopper/00_NSGA-II/](src/grasshopper/00_NSGA-II/)。这些是保留原貌的历史源码，有已确认的问题，详见审核记录。
 - 查看平时作业：[coursework/](coursework/)，保留 A1–A4 学生代码；教学任务书仍保留在本地原目录。
@@ -59,7 +59,7 @@ cd AC_GreenSpaceOptimization
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 $env:PYTHONIOENCODING = "utf-8"
-.\.venv\Scripts\python.exe "NSGA-II based green space optimization.py"
+.\.venv\Scripts\python.exe "src/python/green_space_optimization.py"
 ```
 
 脚本输出每代进度、部分 Pareto 解、折中解指标和字符网格。折中解按归一化后的目标向量到原点的欧氏距离选取。脚本不会保存数据文件或生成 CAD 几何。
@@ -75,7 +75,7 @@ $env:PYTHONIOENCODING = "utf-8"
 3. 检查几何引用、文档单位与组件输入，必要时重新指定曲线引用；先检查错误信息再启用优化。
 4. 对照[源码审核](docs/AUDIT.md)，了解历史实现的问题。本次没有验证 GH 内嵌代码与导出源码是否完全一致，也没有完成 Rhino 几何运行。
 
-提交目录中的两个 GH 文件字节相同，`ResultGenerated` 文件名不能证明其中另有生成结果。原 GitHub 的 `GreenSpaceOptimization_GH/` 路径继续保留；其模型和 GH 文件与最终提交版不同，勿混用版本。
+提交目录中的两个 GH 文件字节相同，`ResultGenerated` 文件名不能证明其中另有生成结果。旧 `GreenSpaceOptimization_GH/` 包已从当前仓库移除，原文件保留在本地作业资料与 Git 历史中；当前请使用最终提交版。
 
 历史 `.csproj` 保留了本机 Rhino DLL 绝对路径与 `net452` / C# 5 配置；源码还存在空包装器、重复类或不完整草稿，不能作为已验证的独立 C# 工程直接编译。`11/` 为另一份历史优化器导出；`00_GeneticAlgorithm/` 为不完整实验草稿。本次整理没有修改算法内容。
 

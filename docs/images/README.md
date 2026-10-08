@@ -1,6 +1,6 @@
 # Figure provenance
 
-The three README board previews are rasterizations of the original local file `Final_Project/Boards/Export/MorphoGenetic.pdf`, which is byte-identical to the repository's root `MorphoGenetic.pdf`.
+The three README board previews are rasterizations of the original local file `Final_Project/Boards/Export/MorphoGenetic.pdf`, which is byte-identical to the repository's `docs/boards/MorphoGenetic.pdf`.
 
 | Preview | Source PDF page (one-based) | Content |
 | --- | --- | --- |

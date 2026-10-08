@@ -8,7 +8,7 @@ The original assignment archive contained 823 files across `A1`, `A2`, `A3`, `A4
 
 Published selections include student GH definitions, C# source/project exports, the final submitted Rhino/GH bundle, boards, presentation slides and three figure exports. Instructor assignment briefs, third-party teaching videos/examples, the undergraduate thesis archive, editable design iterations, backups and IDE state remain local. `Finalc#` contains an empty console `Main` scaffold and is not a functional optimizer, so it remains local as well.
 
-The existing Python script, combined boards and `GreenSpaceOptimization_GH` assets remain at their published paths. [source-map.csv](source-map.csv) records original relative paths and SHA-256 checksums for imported or matched existing assets. The Python script comes from the existing GitHub history, not the local coursework source folders.
+After the follow-up cleanup, the original Python script is maintained at `src/python/green_space_optimization.py` and the combined boards at `docs/boards/MorphoGenetic.pdf`. The superseded `GreenSpaceOptimization_GH` bundle was removed from the current tree; its files remain in the original local archive and Git history. [source-map.csv](source-map.csv) records original relative paths and SHA-256 checksums for imported or matched existing assets. The Python script comes from the existing GitHub history, not the local coursework source folders.
 
 ## Findings
 
@@ -53,7 +53,7 @@ These files are kept for review and recovery, with README status labels. There i
 
 ### 5. Asset naming does not reliably identify different versions
 
-The submitted `OptimizeGreenlandLayout_C#.gh` and `OptimizeGreenlandLayout_ResultGenerated.gh` are byte-identical. The old GitHub GH/model pair differs from the submitted pair. Preserve bundle associations and verify hashes before choosing a version. The final submission folder was selected by its provenance, not by assuming it is a corrected runtime implementation.
+The submitted `OptimizeGreenlandLayout_C#.gh` and `OptimizeGreenlandLayout_ResultGenerated.gh` are byte-identical. The old GitHub GH/model pair differs from the submitted pair and was removed from the current tree during cleanup. The original local archive and Git history retain it for recovery. The final submission folder was selected by its provenance, not by assuming it is a corrected runtime implementation.
 
 ### 6. Python demonstration limitations
 
@@ -73,7 +73,7 @@ No source changes were made to address these limitations in this organization pa
 
 Environment: Windows, Python 3.10, NumPy 2.2.6, pymoo 0.6.1.6, local isolated `.venv`, `PYTHONIOENCODING=utf-8`.
 
-Command: `python "NSGA-II based green space optimization.py"`
+Command at validation time: `python "NSGA-II based green space optimization.py"`. The unchanged script now runs as `python "src/python/green_space_optimization.py"`.
 
 The original script completed 300 generations, exited with code 0 and returned 100 Pareto solution entries. Its selected compromise reported:
 
@@ -91,7 +91,7 @@ These are results of one seeded synthetic demonstration under the recorded envir
 
 - Original source inventory retained locally with paths, sizes and SHA-256.
 - Every source-map entry checked against both original and curated file.
-- Existing published Python and binary assets retained without algorithm or asset edits.
+- Retained Python and binary asset contents are unchanged; the superseded bundle was removed and useful root assets were relocated during cleanup.
 - Markdown relative links checked against repository files.
 - Publication set checked for file size limits, IDE/build artifacts and obvious credential patterns.
 - Original `.vs` data, Copilot chat/session state, `bin` / `obj`, tutorial material and large draft assets excluded.
@@ -99,3 +99,7 @@ These are results of one seeded synthetic demonstration under the recorded envir
 ### Not validated
 
 Rhino/Grasshopper geometry, embedded script execution, plugin dependencies, CAD reference binding, and historical site-performance claims were not run or revalidated. The historical Rhino assembly path recorded in the projects was unavailable in the current environment. No repaired C# result is claimed.
+
+## Follow-up cleanup: 2026-10-08
+
+Removed the superseded `GreenSpaceOptimization_GH` files after confirming exact SHA-256 matches with the local originals. Moved the Python demo into `src/python/green_space_optimization.py` and the combined board PDF into `docs/boards/MorphoGenetic.pdf`. Updated README commands, links, repository layout and figure provenance. Source-map rows now describe only assets present in the current repository. This is a normal Git commit; earlier versions remain recoverable in history.

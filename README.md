@@ -4,13 +4,13 @@
 
 Rui Gu · UCL Bartlett · Architectural Computation · BARC0034 Morphogenetic Programming
 
-[中文说明](README.zh-CN.md) · [Project boards](MorphoGenetic.pdf) · [Source audit](docs/AUDIT.md)
+[中文说明](README.zh-CN.md) · [Project boards](docs/boards/MorphoGenetic.pdf) · [Source audit](docs/AUDIT.md)
 
 This repository brings together the original Rhino/Grasshopper coursework, exported C# scripts, final submission materials, and a separate Python NSGA-II demonstration. The project explores green visibility and green area trade-offs for a residential site in Guangdong, China.
 
 [![Historical project results: before/after green layouts and candidate comparisons](docs/images/results-board.jpg)](docs/images/results-board.jpg)
 
-*Original project boards: site layouts before/after optimization and candidate comparisons. These are historical presentation outputs; the current Python demo uses a separate synthetic grid. [Open the full PDF](MorphoGenetic.pdf).*
+*Original project boards: site layouts before/after optimization and candidate comparisons. These are historical presentation outputs; the current Python demo uses a separate synthetic grid. [Open the full PDF](docs/boards/MorphoGenetic.pdf).*
 
 ## Visual walkthrough
 
@@ -33,7 +33,7 @@ The algorithm board illustrates non-dominated sorting, selection, chromosome rep
 
 ## Start here
 
-- **Understand the design:** read [MorphoGenetic.pdf](MorphoGenetic.pdf) or the [submitted boards](docs/boards/).
+- **Understand the design:** read [MorphoGenetic.pdf](docs/boards/MorphoGenetic.pdf) or the [submitted boards](docs/boards/).
 - **Run the Python demonstration:** follow the commands below. It uses a synthetic 5 × 6 grid and requires no Rhino or GPU.
 - **Inspect the final spatial project:** use [grasshopper/final-submission/](grasshopper/final-submission/) together with its Rhino model.
 - **Read the C# implementation:** start at [00_NSGA-II](src/grasshopper/00_NSGA-II/). These are historical script exports with known defects, not a verified standalone application.
@@ -90,7 +90,7 @@ Then run:
 
 ```bash
 python -m pip install -r requirements.txt
-python "NSGA-II based green space optimization.py"
+python "src/python/green_space_optimization.py"
 ```
 
 If PowerShell blocks environment activation, call `.\.venv\Scripts\python.exe` directly. UTF-8 output is needed for the emoji layout on terminals using legacy encodings.
@@ -104,7 +104,7 @@ Configuration is currently edited inside the script; there are no command-line o
 3. Inspect geometry references, document units, script inputs and component errors before enabling optimization. Rebind referenced curves if necessary.
 4. Compare the definition with the exported scripts and [audit](docs/AUDIT.md). This archive has not been executed or geometry-validated in Rhino during the organization pass.
 
-The submitted `OptimizeGreenlandLayout_C#.gh` and `OptimizeGreenlandLayout_ResultGenerated.gh` are byte-identical; the latter name does not establish that it contains a separate generated result. The older published `GreenSpaceOptimization_GH/` bundle is retained at its original path. Its files differ from the final submission and should be kept with their corresponding models.
+The submitted `OptimizeGreenlandLayout_C#.gh` and `OptimizeGreenlandLayout_ResultGenerated.gh` are byte-identical; the latter name does not establish that it contains a separate generated result. The superseded `GreenSpaceOptimization_GH/` bundle has been removed from the current repository. Its original files remain in the local coursework archive and Git history; use the final-submission bundle here.
 
 Exported `.csproj` files preserve historical machine-specific Rhino assembly paths and `net452` / C# 5 settings. They require local configuration and, in some folders, incompatible or incomplete script exports. There is no verified one-command C# build. Wallacei-related experiments in the local thesis archive are separate from the custom C# optimizer included here.
 
@@ -114,8 +114,7 @@ Exported `.csproj` files preserve historical machine-specific Rhino assembly pat
 AC_GreenSpaceOptimization/
 ├── README.md / README.zh-CN.md
 ├── requirements.txt
-├── NSGA-II based green space optimization.py  # Original published Python demo
-├── GreenSpaceOptimization_GH/                # Original published GH/model pair
+├── src/python/green_space_optimization.py     # Python demonstration
 ├── grasshopper/final-submission/             # Submitted GH/model pair and duplicate export
 ├── src/grasshopper/                          # Original C# source/project exports
 │   ├── 00_DataProcessing/
@@ -125,11 +124,10 @@ AC_GreenSpaceOptimization/
 │   ├── 02_Visualization/
 │   └── 11/                                  # Alternate historical optimizer export
 ├── coursework/A1/ ... A4/                    # Student definitions; A1 also has C# source
-├── MorphoGenetic.pdf                         # Original published combined boards
 └── docs/
     ├── AUDIT.md
     ├── source-map.csv                       # Original relative paths and SHA-256
-    ├── boards/
+    ├── boards/                              # Combined PDF and submitted boards
     ├── presentations/
     └── images/
 ```
