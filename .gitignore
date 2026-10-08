@@ -1,0 +1,32 @@
+# Local Python environment and generated files
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# IDE state and build products
+.vs/
+.idea/
+.vscode/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.cache
+
+# Local secrets and operating system metadata
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Rhino backups and temporary archives
+*.3dmbak
+*.ghbak
+*.tmp
+~$*
+
+# Local organization workflow; not part of the published project
+docs/superpowers/

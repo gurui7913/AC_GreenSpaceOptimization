@@ -1,0 +1,17 @@
+# Preserve original source-export bytes, including legacy encodings and CRLF.
+*.cs -text -whitespace
+*.csproj -text -whitespace
+*.sln -text -whitespace
+
+# Design assets must not undergo line-ending conversion.
+*.gh binary
+*.3dm binary
+*.pdf binary
+*.pptx binary
+*.png binary
+*.jpg binary
+
+# Keep newly authored documentation portable.
+*.md text eol=lf
+*.csv text eol=lf
+requirements.txt text eol=lf

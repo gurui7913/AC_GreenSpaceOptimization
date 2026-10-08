@@ -1,0 +1,3 @@
+# Validated with Python 3.10. No GPU required.
+numpy==2.2.6
+pymoo==0.6.1.6
